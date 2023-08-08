@@ -7,43 +7,43 @@ const prisma = new PrismaClient()
 /* GET users listing. */
 
 router.get('/',async function(req, res, next) {
-  const book = await prisma.book.findMany()
-    res.status(201).json(book)
+  const author = await prisma.author.findMany()
+    res.status(201).json(author)
 });
 
 router.get('/:id',async function(req, res, next) {
-  const book = await prisma.book.findUnique({
+  const author = await prisma.author.findUnique({
   where : {
     id : parseInt(req.params.id)
   }
 })
-    res.status(201).json(book)
+    res.status(201).json(author)
 });
 
 router.patch('/:id',async function(req, res, next) {
-  const book = await prisma.book.updateMany({
+  const author = await prisma.author.updateMany({
   data: req.body,
   where : {
     id : parseInt(req.params.id)
   }
 })
-    res.status(201).json(book)
+    res.status(201).json(author)
 });
 
 router.delete('/:id',async function(req, res, next) {
-  const book = await prisma.book.delete({
+  const author = await prisma.author.delete({
   where : {
     id : parseInt(req.params.id)
   }
 })
-    res.status(202).json(book)
+    res.status(202).json(author)
 });
 
 router.post('/',async function(req, res, next) {
-  const book = await prisma.book.create({
+  const author = await prisma.author.create({
     data: req.body,
   })
-res.status(201).json(book)
+res.status(201).json(author)
 });
 
 module.exports = router;
